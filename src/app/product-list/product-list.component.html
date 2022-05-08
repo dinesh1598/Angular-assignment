@@ -1,0 +1,250 @@
+<div class="header">
+  <h3>Product List</h3>
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Add Product
+  </button>
+</div>
+<table class="table table-striped mt-2">
+  <thead>
+    <tr>
+      <th scope="col">Product Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Serial Number</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Stock Unit</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of fetchedProductsData; index as i">
+      <td>{{ product.productid }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.serialnumber }}</td>
+      <td>{{ product.releasedate }}</td>
+      <td>{{ product.stockunit }}</td>
+      <td>{{ product.description }}</td>
+      <td>
+        <a routerLink="/productdetails/{{ i }}"
+          ><button type="button" class="btn btn-primary">View</button></a
+        >
+      </td>
+      <!-- <td>
+        <a routerLink="/editproduct/{{ i }}"
+          ><button type="button" class="btn btn-primary">Edit</button></a
+        >
+      </td> -->
+      <!-- <td><i style="color: red; font-size: 28px; cursor: pointer;" class="fa-solid fa-trash-can" (click)="deleteData(product.id)"></i></td> -->
+      <!-- <td>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop1"
+          (click)="getProductDetailsToEdit(i)"
+        >
+          Edit
+        </button>
+      </td> -->
+      <td>
+        <button
+          type="button"
+          (click)="deleteData(product.id)"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Add Product Details
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="newFormValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Product ID</label
+            ><br />
+            <span
+              style="color: red; font-size: 21px"
+              *ngIf="
+                productidValid &&
+                productidValid.invalid &&
+                productidValid.touched
+              "
+              >This field is required & must use alphanumeric values</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              formControlName="productid"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Name</label
+            ><br />
+            <span
+              style="color: red; font-size: 21px"
+              *ngIf="
+                validateName && validateName.invalid && validateName.touched
+              "
+              >This field is required & must use alphanumeric values</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="name"
+              maxlength="30"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-check-label" for="category">Category</label>
+            <select
+              class="form-control"
+              id="category"
+              formControlName="category"
+            >
+              <option value="Phone">Phone</option>
+              <option value="Tv">Tv</option>
+              <option value="Laptop">Laptop</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Price</label>
+            <br />
+            <span
+              style="color: red; font-size: 21px"
+              *ngIf="validPrice && validPrice.invalid && validPrice.touched"
+              >This field is required & must use numeric values</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="price"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Serial Number</label
+            ><br />
+            <span
+              style="color: red; font-size: 21px"
+              *ngIf="
+                validateSerialNumber &&
+                validateSerialNumber.invalid &&
+                validateSerialNumber.touched
+              "
+              >This field is required & must use alphanumeric values</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="serialnumber"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="customeDate" class="form-label">Release Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="customeDate"
+              max="{{ maxDate }}"
+              formControlName="releasedate"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Stock Unit</label
+            ><br />
+            <span
+              style="color: red; font-size: 21px"
+              *ngIf="
+                validateStock && validateStock.invalid && validateStock.touched
+              "
+              >This field is required & must use numeric values</span
+            >
+
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="stockunit"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Description</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="description"
+              maxlength="150"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="cancel"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addProducts()"
+          [disabled]="newFormValue.invalid"
+        >
+          Add
+        </button>
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="dataSaved">
+        Product Added Successfully !!!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->

@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "productid": "101",
+      "name": "samsung",
+      "category": "Laptop",
+      "price": "1200",
+      "serialnumber": "1234",
+      "releasedate": "2022-05-05",
+      "stockunit": "1",
+      "description": "dad",
+      "id": 1
+    }
+  ]
+}

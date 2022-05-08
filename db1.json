@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "productid": "8877rr",
+      "name": "Mi note 11",
+      "category": "Phone",
+      "price": "20000",
+      "serialnumber": "fggtt555",
+      "releasedate": "2022-04-07",
+      "stockunit": "5",
+      "description": "phone",
+      "id": 7
+    },
+    {
+      "productid": "43rdd",
+      "name": "OPPO 5",
+      "category": "Phone",
+      "price": "30000",
+      "serialnumber": "456tyy",
+      "releasedate": "2022-04-06",
+      "stockunit": "19",
+      "description": "ttt",
+      "id": 8
+    },
+    {
+      "productid": "111AA",
+      "name": "onePlus",
+      "category": "Phone",
+      "price": "30000",
+      "serialnumber": "rrttone889",
+      "releasedate": "2022-04-04",
+      "stockunit": "8",
+      "description": "one plus phone",
+      "id": 9
+    }
+  ]
+}

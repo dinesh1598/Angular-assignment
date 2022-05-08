@@ -1,0 +1,81 @@
+<div class="header">
+  <h3>Edit Product</h3>
+  <!-- Button trigger modal -->
+  <a routerLink="/productlist"
+    ><button style="padding: 10px" type="button" class="btn btn-success">
+      Back To Product List
+    </button></a
+  >
+</div>
+<div class="product_details">
+  <div class="container">
+    <div class="title">Edit Product Details</div>
+    <div class="content">
+      <form [formGroup]="newFormValue">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Product ID</span>
+            <input type="text" value="{{productId}}" />
+          </div>
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" value="{{name}}"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Categoty</span>
+            <select
+              id="category"
+              formControlName="category"
+              style="
+                border-color: #9b59b6;
+                border-radius: 3px;
+                width: 100%;
+                background-color: white;
+              "
+              value="{{category}}"
+            >
+              <option value="Phone">Phone</option>
+              <option value="Tv">Tv</option>
+              <option value="Laptop">Laptop</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Price</span>
+            <input type="text" value="{{price}}"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Serial Number</span>
+            <input type="text" value="{{serialnumber}}"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Release Date</span>
+            <input type="date" max="{{ maxDate }}" value="{{releasedate}}"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Stock</span>
+            <input type="text" value="{{stockunit}}"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Description</span>
+            <input type="text" value="{{description}}"/>
+          </div>
+
+        </div>
+        <!-- <div class="button">
+              <input type="submit" value="Register">
+            </div> -->
+        <div class="form_buttons">
+          <button style="padding: 10px" class="btn btn-primary">Update</button>
+          <a routerLink="/productlist">
+            <button
+              style="padding: 10px; margin-left: 20px"
+              class="btn btn-danger"
+            >
+              Cancel
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

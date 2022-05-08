@@ -1,0 +1,73 @@
+<div class="header">
+  <h3>Product List</h3>
+  <!-- Button trigger modal -->
+  <a routerLink="/productlist"
+    ><button style="padding: 10px;" type="button" class="btn btn-success">
+      Back To Product List
+    </button></a
+  >
+</div>
+
+<div class="product_details">
+    <div class="container">
+        <div class="title">Product Details</div>
+        <div class="content">
+          <form action="#">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Product ID</span>
+                <input type="text" value="{{ productId }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Name</span>
+                <input type="text" value="{{ name }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Categoty</span>
+                <input type="text" value="{{ category }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Price</span>
+                <input type="text" value="{{ price }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Serial Number</span>
+                <input type="text" value="{{ serialnumber }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Release Date</span>
+                <input type="text" value="{{ releasedate }}" disabled="true">
+              </div>
+              <div class="input-box">
+                <span class="details">Description</span>
+                <input type="text" value="{{ description }}" disabled="true">
+              </div>
+            </div>
+            <!-- <div class="button">
+              <input type="submit" value="Register">
+            </div> -->
+          </form>
+        </div>
+      </div>
+</div>
+
+<!-- <h2>{{ productId }}</h2>
+<h2>{{ name }}</h2>
+<h2>{{ category }}</h2>
+<h2>{{ price }}</h2>
+<h2>{{ serialnumber }}</h2>
+<h2>{{ releasedate }}</h2>
+<h2>{{ description }}</h2> -->
+
+<!--
+{
+    "productid": "8877rr",
+    "name": "Mi note 11",
+    "category": "Phone",
+    "price": "20000",
+    "serialnumber": "fggtt555",
+    "releasedate": "2022-04-07",
+    "stockunit": "5",
+    "description": "phone",
+    "id": 7
+  }, -->
